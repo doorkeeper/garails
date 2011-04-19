@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    garails (0.0.3)
+    garails (0.0.5)
       gabbara (~> 0.0.4)
 
 GEM
@@ -77,7 +77,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gabbara (~> 0.0.4)
   garails!
   rails (~> 3.0.3)
   shoulda
