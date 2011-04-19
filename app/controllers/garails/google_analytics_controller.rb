@@ -1,7 +1,7 @@
 require 'gabbara'
 require 'digest'
 
-class Garails::GoogleAnalyticsController < ApplicationController
+class Garails::GoogleAnalyticsController < ActionController::Base
   unloadable
   before_filter :extract_visitor_id
 
