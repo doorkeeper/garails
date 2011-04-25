@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     garails (0.0.5)
-      gabbara (~> 0.0.4)
+      gabbara (~> 0.0.5)
 
 GEM
   remote: http://rubygems.org/
@@ -34,11 +34,14 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    addressable (2.2.5)
     arel (2.0.6)
     builder (2.1.2)
+    crack (0.1.8)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    gabbara (0.0.4)
+    flexmock (0.9.0)
+    gabbara (0.0.5)
       activesupport
     i18n (0.5.0)
     mail (2.2.12)
@@ -72,11 +75,16 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    webmock (1.6.2)
+      addressable (>= 2.2.2)
+      crack (>= 0.1.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  flexmock
   garails!
   rails (~> 3.0.3)
   shoulda
+  webmock

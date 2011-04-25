@@ -18,7 +18,7 @@ class Garails::GoogleAnalyticsController < ActionController::Base
 
   def utm
     if Garails.ga_setup?
-      g = Garails.mobile_gabba(request, :utmn => params[:utmn])
+      g = Garails.mobile_gabba(request, :utmn => params[:utmn], :utmcc => "__utma=999.999.999.999.999.1;", :utmhid => "")
       g.page_view('', :utmvid => @visitor_id)
     end
     response.headers.merge(UTM_HEADERS)
