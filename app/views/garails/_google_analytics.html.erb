@@ -5,6 +5,10 @@
   <% unless Garails.ga_cookie_domain.blank? -%>
   _gaq.push(['_setDomainName', '<%= Garails.ga_cookie_domain %>']);
   <% end -%>
+  <% if extra_account %>
+    _gaq.push(['b._setAccount', '<%= extra_account %>']);
+  <% end %>
+
   _gaq.push(['_trackPageview']);
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
