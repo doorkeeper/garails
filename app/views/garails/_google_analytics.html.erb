@@ -5,11 +5,12 @@
   <% unless Garails.ga_cookie_domain.blank? -%>
   _gaq.push(['_setDomainName', '<%= Garails.ga_cookie_domain %>']);
   <% end -%>
+  _gaq.push(['_trackPageview']);
   <% if extra_account %>
     _gaq.push(['b._setAccount', '<%= extra_account %>']);
+    _gaq.push(['b._trackPageview']);
   <% end %>
 
-  _gaq.push(['_trackPageview']);
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
