@@ -17,10 +17,7 @@ class Garails::GoogleAnalyticsController < ActionController::Base
   UTM_COOKIE_NAME = "__utmmobile"
 
   def utm
-    if Garails.ga_setup?
-      g = Garails.mobile_gabba(request, :utmn => params[:utmn], :utmcc => "__utma=999.999.999.999.999.1;", :utmhid => "")
-      g.page_view('', :utmvid => @visitor_id)
-    end
+    record_access if Garails.ga_setup?
     response.headers.merge(UTM_HEADERS)
     respond_to do |format|
       format.gif { send_data UTM_GIF_DATA, :type => :gif, :disposition => "inline" }
@@ -28,6 +25,14 @@ class Garails::GoogleAnalyticsController < ActionController::Base
   end
 
   private
+
+  def record_access
+    mobile_gabba.page_view('', :utmvid => @visitor_id)
+  end
+
+  def mobile_gabba
+    Garails.mobile_gabba(request, :utmn => params[:utmn], :utmcc => "__utma=999.999.999.999.999.1;", :utmhid => "")
+  end
 
   def extract_visitor_id
     @visitor_id = cookies[UTM_COOKIE_NAME] || construct_new_visitor_id
