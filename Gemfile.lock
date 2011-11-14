@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    garails (0.1.3)
+    garails (0.1.4)
       gabbara (~> 0.0.5)
 
 GEM
