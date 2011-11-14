@@ -1,7 +1,7 @@
 module Garails::MobileHelper
 
   def utm_tag
-    image_tag utm_path, :alt => "", :size => "1x1"
+    tag "img", :src => utm_path, :alt => "", :width => "1", :height => "1"
   end
 
   def utm_path

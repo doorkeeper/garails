@@ -1,3 +1,4 @@
+
 module Garails
   class Engine < ::Rails::Engine
     initializer 'garails.view.helper' do |app|
