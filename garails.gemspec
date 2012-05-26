@@ -6,9 +6,9 @@ Gem::Specification.new do |s|
   s.name        = "garails"
   s.version     = Garails::VERSION
   s.platform    = Gem::Platform::RUBY  
-  s.authors     = 'Michael Reinsch'
-  s.email       = "michael@mobalean.com"
-  s.homepage    = "http://github.com/mreinsch/garails"
+  s.authors     = 'Michael Reinsch', 'Paul McMahon'
+  s.email       = "info@mobalean.com"
+  s.homepage    = "http://github.com/mobalean/garails"
   s.description = "Google Analytics for Rails"
   s.summary     = "Google Analytics for Rails"
 
