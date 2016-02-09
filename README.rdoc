@@ -17,8 +17,6 @@ and run 'bundle install'.
 Then create a config/initializers/garails.rb with the following content:
 
   Garails.ga_account = 'UA-12345678-9'
-  # Garails.ga_cookie_domain = '.mydomain.com'
-  # Garails.ga_hostname = 'www.mydomain.com'
 
 == Usage
 

@@ -11,27 +11,16 @@ describe Garails::JavascriptHelper, type: :helper do
   context "has analytics account setup" do
     before { Garails.ga_account = "UA-FOO" }
     subject { google_analytics_tracking_javascript }
-    it { should include("_gaq.push(['_setAccount', 'UA-FOO']);") }
-    it { should include("_gaq.push(['_trackPageview']);") }
+    it { should include("ga('create', 'UA-FOO', 'auto')") }
+    it { should include("ga('send', 'pageview')") }
   end
 
   context "has extra account setup" do
     before { Garails.ga_account = "UA-FOO" }
     subject { google_analytics_tracking_javascript("UA-OTHER") }
-    it { should include("_gaq.push(['_setAccount', 'UA-FOO']);") }
-    it { should include("_gaq.push(['_trackPageview']);") }
-    it { should include("_gaq.push(['b._setAccount', 'UA-OTHER'])") }
-    it { should include("_gaq.push(['b._trackPageview'])") }
-  end
-
-  context "has analytics account setup with cookie domain, hostname, and extra account" do
-    before do
-      Garails.ga_account = "UA-FOO"
-      Garails.ga_cookie_domain = ".example.com"
-      Garails.ga_hostname = "www.example.com"
-    end
-    subject { google_analytics_tracking_javascript }
-    it { should include("_gaq.push(['_setAccount', 'UA-FOO']);") }
-    it { should include("_gaq.push(['_trackPageview']);") }
+    it { should include("ga('create', 'UA-FOO', 'auto')") }
+    it { should include("ga('send', 'pageview')") }
+    it { should include("ga('create', 'UA-OTHER', 'auto', 'extraTracker')") }
+    it { should include("ga('extraTracker.send', 'pageview')") }
   end
 end
