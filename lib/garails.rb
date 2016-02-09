@@ -1,4 +1,4 @@
-require 'gabbara'
+require 'rails'
 
 module Garails
 
@@ -6,7 +6,7 @@ module Garails
   mattr_accessor :ga_account
   @@ga_account = nil
 
-  # cookie domain for the tracking cookie. Only set this if you need to 
+  # cookie domain for the tracking cookie. Only set this if you need to
   # (e.g. for subdomain tracking). Corresponds to "_setDomainName".
   mattr_accessor :ga_cookie_domain
   @@ga_cookie_domain = nil
@@ -19,23 +19,6 @@ module Garails
 
   def self.ga_setup?
     ! Garails.ga_account.blank?
-  end
-
-  def self.ga_mobile_account
-    ga_account.sub(/^UA-/, 'MO-')
-  end
-
-  def self.gabba(request, opts = {})
-    create_gabba(Garails.ga_account, request, opts)
-  end
-
-  def self.mobile_gabba(request, opts = {})
-    create_gabba(Garails.ga_mobile_account, request, opts)
-  end
-
-  def self.create_gabba(account, request, opts = {})
-    opts = opts.reverse_merge(:request => request, :logger => Rails.logger)
-    ::Gabbara::Gabba.new(account, Garails.ga_hostname, opts)
   end
 end
 
